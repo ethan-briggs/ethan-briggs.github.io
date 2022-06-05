@@ -9,7 +9,9 @@ h1 {
   font-size: 400%;
 
 }
-
+p {
+  height: auto;
+}
 h2 {
     float: right;
     border:1px solid black;
