@@ -75,7 +75,7 @@ $(function() { // Same as document.addEventListener("DOMContentLoaded"...
     // random category into the home HTML snippet, and then insert that snippet into our
     // main page (index.html).
     //
-    // TODO: STEP 1: Substitute [...] below with the *value* of the function buildAndShowHomeHTML,
+    // TODO: STEP 1: Substitute  below with the *value* of the function buildAndShowHomeHTML,
     // so it can be called when server responds with the categories data.
 
     // *** start ***
@@ -83,7 +83,7 @@ $(function() { // Same as document.addEventListener("DOMContentLoaded"...
     showLoading("#main-content");
     $ajaxUtils.sendGetRequest(
       allCategoriesUrl,
-      buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+      buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute  ******
       true); // Explicitly setting the flag to get JSON from server processed into an object literal
   });
   // *** finish **
@@ -123,8 +123,9 @@ $(function() { // Same as document.addEventListener("DOMContentLoaded"...
         // of how to do that.
         // ....
         var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
-        var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml,
-          "randomCategoryShortName", "'" + chosenCategoryShortName + "''");
+        chosenCategoryShortName = "'" + chosenCategoryShortName + "''";
+        var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
+          
         insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
       },
       false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
